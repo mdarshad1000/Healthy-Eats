@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--========== BOX ICONS ==========-->
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+
+    <!--========== CSS ==========-->
+    <link rel="stylesheet" href="{% static 'styles/index.css' %}">
+    <!-- =========== Favicon =========== -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'images/site.webmanifest' %}">
+
+    <title>Healthy Eats</title>
+</head>
+
+<body>
+
+    <!--========== SCROLL TOP ==========-->
+    <a href="" class="scrolltop" id="scroll-top">
+        <i class='bx bx-chevron-up scrolltop__icon'></i>
+    </a>
+
+    <!--========== HEADER ==========-->
+    <header class="l-header" id="header">
+        <nav class="nav bd-container">
+            <a href="{% url 'home' %}" class="nav__logo">Healthy Eats</a>
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <!-- <li class="nav__item"><a href="{% url 'home' %}" class="nav__link active-link">Home</a></li> -->
+                    <li class="nav__item"><a href="{% url 'upload-and-extract' %}" class="nav__link">Scan</a></li>
+                    <li class="nav__item"><a href="{% url 'recipe' %}" class="nav__link">Recipe Search</a></li>
+                    <li class="nav__item"><a href="{% url 'nutrition' %}" class="nav__link">Nutrition</a></li>
+                    {% if request.user.is_authenticated %}
+                    <li class="nav__item"><a href="{% url 'logout' %}" class="nav__link">Logout</a></li>
+                    <li class="nav__item">@{{user.username}}</li>
+                    {% else %}
+                    <li class="nav__item"><a href="{% url 'login' %}" class="nav__link">Login</a></li>
+                    {% endif %}
+                    <li><i class='bx bx-moon change-theme' id="theme-button"></i></li>
+                </ul>
+            </div>
+            <div class="nav__toggle" id="nav-toggle">
+                <i class='bx bx-menu'></i>
+            </div>
+        </nav>
+    </header> 
+
+    {% block content %}
+
+    {% endblock content %}
+    <!--========== MAIN JS ==========-->
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+
+</html>
