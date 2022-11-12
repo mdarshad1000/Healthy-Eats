@@ -1,0 +1,45 @@
+{% extends 'layout.html' %}
+{% block content %}
+{% load static %}
+
+<main class="l-main">
+    <section class="home" id="home">
+        <div class="home__container bd-container bd-grid">
+
+            <!-- <img src="{% static 'images/home.png' %}" alt="Food Image" class="home__img"> -->
+            <img class="img-fluid carousel" name="carousel">
+            <div class="home__data">
+                <h2 class="home__title">Analyse.Cook.Eat<br>A healthier you, starts with EatGood.</h2>
+                <p class="home__subtitle">
+                    Healthy Eats is a great resource for anyone interested in learning more about nutrition and healthy eating. The website provides detailed information about the nutritional value of various ingredients, and also offers a recipe generator to help users create healthy and nutritious meals. In addition, the website also provides a food analysis tool, which can be used to identify unhealthy ingredients in recipes and make healthier choices.</p>
+                <a href="{% url 'register' %}" class="button">Join Us</a>
+            </div>
+        </div>
+    </section>
+</main>
+<script>
+    // Carousel
+let i = 0;
+let images = [];
+let time = 1000;
+
+images[0] = "{% static 'images/plate1.png' %}";
+images[1] = "{% static 'images/plate2.png' %}";
+images[2] = "{% static 'images/plate3.png' %}";
+
+
+function change() {
+    document.carousel.src = images[i];
+    if (i < images.length - 1) {
+        i++;
+    } else {
+        i = 0;
+    }
+
+    setTimeout("change()", time);
+}
+
+window.onload = change;
+</script>
+
+{% endblock content  %}

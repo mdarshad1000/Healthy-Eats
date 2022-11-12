@@ -1,0 +1,138 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block content %}
+<style>
+  /* This css is for normalizing styles. You can skip this. */
+  *,
+  *:before,
+  *:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+
+
+
+  .new {
+    padding: 50px;
+  }
+
+  .form-group {
+    display: inline-block;
+    margin: 15px;
+  }
+
+  .form-group input {
+    padding: 0;
+    height: initial;
+    width: initial;
+    margin-bottom: 0;
+    display: none;
+    cursor: pointer;
+  }
+
+  .form-group label {
+    position: relative;
+    cursor: pointer;
+  }
+
+  .form-group label:before {
+    content: '';
+    -webkit-appearance: none;
+    background-color: transparent;
+    border: 2px solid #22a636;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
+    padding: 10px;
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    cursor: pointer;
+    margin-right: 5px;
+  }
+
+  .form-group input:checked+label:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 2px;
+    left: 9px;
+    width: 6px;
+    height: 14px;
+    border: solid var(--text-color);
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+  }
+</style>
+
+<br><br><br>
+<div class="form">
+  <form action="" method="GET" autocomplete="off">
+    <!-- Ingredients -->
+    <div class="mb-5" id="ingredientsWrapper">
+      <p class="home__title">Enter the first ingredient before adding more.</p>
+      <div class="px-5 field mb-3">
+        <input type="text" class="border-0 me-2 form-control form-control-sm" name="ingredients" id="ingredients"
+          placeholder="Enter your ingredient(s)" autofocus />
+        <span onclick="addField(this)" class=" buttons">+</span>
+        <span onclick="removeField(this)" class=" buttons">−</span>
+      </div>
+    </div>
+    <!-- Dish Type  -->
+    <div class="mb-5" id="dishTypeWrapper">
+      <p class="home__title">Dish Type</p>
+      {% for item in dishtype %}
+      <div class="form-group">
+        <input class="border-0 form-check-input" type="checkbox" name="dishType" value="{{ item }}" id="{{ item }}">
+        <label for="{{item}}">{{item|capfirst}}</label>
+      </div>
+      {% endfor %}
+    </div>
+
+    <!-- Diet Labels  -->
+    <div class="mb-5" id="dishTypeWrapper">
+      <p class="home__title">Diet Label</p>
+      {% for item in dietlabels %}
+      <div class="form-group">
+        <input class="border-0 form-check-input" type="checkbox" name="dishType" value="{{ item }}" id="{{ item }}">
+        <label for="{{item}}">{{item|capfirst}}</label>
+      </div>
+      {% endfor %}
+    </div>
+    <!-- Health Labels  -->
+    <div class="mb-5" id="dishTypeWrapper">
+      <p class="home__title">Allergy/ Restrictions</p>
+      {% for item in healthlabels %}
+      <div class="form-group">
+        <input class="border-0 form-check-input" type="checkbox" name="dishType" value="{{ item }}" id="{{ item }}">
+        <label for="{{item}}">{{item|capfirst}}</label>
+      </div>
+      {% endfor %}
+    </div>
+    <!-- Cuisine Type Labels  -->
+    <div class="mb-5" id="dishTypeWrapper">
+      <p class="home__title">Cuisine</p>
+      {% for item in cuisinetype %}
+      <div class="form-group">
+        <input class="border-0 form-check-input" type="checkbox" name="dishType" value="{{ item }}" id="{{ item }}">
+        <label for="{{item}}">{{item|capfirst}}</label>
+      </div>
+      {% endfor %}
+      <div>
+        <input type="submit" id="search" value="Show Recipes" style="margin-top: 1rem; margin-bottom: 1rem;"
+          class="button" />
+      </div>
+    </div>
+  </form>
+</div>
+
+
+
+
+<script src="{% static 'js/dynamicTextField.js' %}"></script>
+<script src="{% static 'js/toggle.js' %}"></script>
+
+
+{% endblock content %}

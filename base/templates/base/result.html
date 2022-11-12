@@ -1,0 +1,49 @@
+{% extends 'layout.html' %}
+{% block content %}
+{% load static %}
+<style>
+    .home-container {
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr;
+    }
+</style>
+
+
+
+    <div class="home-container">
+        <!-- First -->
+        <div>
+            <!-- <h1> FIRST </h1> -->
+        </div>
+
+        <div class="activities" style="margin-top: 7rem;">
+
+            <div class="activities__header">
+                <h1>Ingredients in your Food!</h1>
+
+            </div>
+            <div class="activities__box">
+                {% for item in modified_array_answer %}
+                {% if forloop.counter0|divisibleby:2 %}
+
+                <h3>{{item|capfirst}}</h3>
+                {% else %}
+
+                <p>{{item}}</p>
+                <br>
+                <hr><br>
+                {% endif %}
+                {% endfor %}
+            </div>
+
+        </div>
+
+
+        <!-- Third -->
+        <div>
+            <!-- <h1> THIRD </h1> -->
+
+        </div>
+    </div>
+
+{% endblock content %}

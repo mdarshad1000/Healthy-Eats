@@ -1,0 +1,36 @@
+{% extends 'layout.html' %}
+{% block content %}
+{% load static %}
+
+<div class="login">
+    <div class="login__content">
+        <div class="login__img">
+            <img src="{% static 'images/img-login.svg' %}" alt="">
+        </div>
+
+        <div class="login__forms" style="height: 540px;">
+
+            <form action="" class="login__registre" id="login-up" method="POST">
+                {% csrf_token %}
+                <h1 class="login__title">Sign Up</h1>
+
+                {% for field in form %}
+                <div class="login__box">
+                    <!-- <input class="login__input" placeholder="{{field.label}}" value="{{field}}"> -->
+                <label style="color: rgb(53, 52, 52);">{{field.label}}</label>
+                    {{field}}
+                </div>
+                {% endfor %}
+
+                <button type="submit" class="login__button">Sign Up</button>
+
+                <div>
+                    <span class="login__account">Already Signed up?</span>
+                    <a href="{% url 'login' %}"><span class="login__signin" id="sign-up">LogIn</span></a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
