@@ -19,7 +19,7 @@ from base.recipe_option import dietlabels, healthlabels, dishtype, cuisinetype
 
 
 # OPENAI API_KEY
-openai.api_key = "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"
+openai.api_key = "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"
 
 # Edamam API
 api_id = "2e2a95e8"
@@ -94,7 +94,7 @@ def upload_and_extract(request):
         if form.is_valid():
             form.save()
 
-            list_of_files = glob.glob('/Users/arshad/Desktop/Projects/concode/static/images/*') # * means all if need specific format then *.csv
+            list_of_files = glob.glob('/Users/arshad/Desktop/Healthy-Eats/static/images/*') # * means all if need specific format then *.csv
             latest_file = max(list_of_files, key=os.path.getctime) # selecting the latest file
             print(latest_file)
 
