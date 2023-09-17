@@ -6,7 +6,7 @@ authors = ["Mohammad Arshad <mdarshad1000@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.10.4"
+python = "^3.9"
 django = "^4.2.5"
 render-python = "^2.3.0"
 langchain = "^0.0.292"
