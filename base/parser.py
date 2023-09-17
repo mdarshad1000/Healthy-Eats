@@ -39,8 +39,7 @@ Healthy/Unhealthy label
 prompt_template = ChatPromptTemplate.from_template(template_string)
 
 chat_llm = ChatOpenAI(temperature=0.0)
-llm = OpenAI(temperature=0,
-             openai_api_key="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")
+llm = OpenAI(temperature=0)
 ingredients_chain = LLMChain(
     llm=llm, prompt=ingredients_template, verbose=True, output_key='ingredients')
 

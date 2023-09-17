@@ -23,16 +23,17 @@
 
             </div>
             <div class="activities__box">
-                {% for item in modified_array_answer %}
-                {% if forloop.counter0|divisibleby:2 %}
+                {% for item in parsed_dict %}
 
-                <h3>{{item|capfirst}}</h3>
-                {% else %}
+                <h2>{{item.ingredient}}  {{item.emoji}}</h2>
+                <span style="background-color: #960b3c; color: #fff; padding: 3px 6px; border-radius: 10px;">
+                    {{ item.label }}
+                </span>
+                
 
-                <p>{{item}}</p>
+                <p>{{item.description}}</p>
                 <br>
                 <hr><br>
-                {% endif %}
                 {% endfor %}
             </div>
 
