@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "healthy-eats"
+version = "0.1.0"
+description = ""
+authors = ["Mohammad Arshad <mdarshad1000@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10.4"
+django = "^4.2.5"
+render-python = "^2.3.0"
+langchain = "^0.0.292"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

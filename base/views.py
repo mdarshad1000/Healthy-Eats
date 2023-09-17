@@ -25,6 +25,8 @@ load_dotenv()
 
 # OPENAI API_KEY
 OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
+openai.api_key = OPENAI_API_KEY
+
 
 # Edamam API
 api_id = os.getenv("EDAMAM_API_ID")
